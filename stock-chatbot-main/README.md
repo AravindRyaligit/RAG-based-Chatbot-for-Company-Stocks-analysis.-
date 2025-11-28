@@ -77,3 +77,5 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Cc License
 
 This project is licensed under the MIT License.
+
+![Screenshot 2025-11-28 153433](https://github.com/user-attachments/assets/188f4f9b-0625-4939-8fca-cf53d5509d3e)
