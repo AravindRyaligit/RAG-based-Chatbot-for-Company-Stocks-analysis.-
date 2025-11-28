@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+torch
+transformers
+requests
+pinecone
+huggingface-hub
+google-generativeai
+python-dotenv

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stock Chatbot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background-color: #f5f5f5;
+    }
+    #chat-box {
+      margin-top: 1rem;
+      background-color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    input, button {
+      padding: 0.5rem;
+      margin-right: 0.5rem;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Stock Chatbot</h1>
+  <input type="text" id="questionInput" placeholder="Ask a stock-related question" size="60">
+  <button onclick="askQuestion()">Ask</button>
+
+  <div id="chat-box"></div>
+
+  <script>
+    async function askQuestion() {
+      const input = document.getElementById("questionInput").value;
+      if (!input) return;
+
+      const chatBox = document.getElementById("chat-box");
+      chatBox.innerHTML += `<p><strong>You:</strong> ${input}</p>`;
+
+      try {
+        const response = await fetch("http://127.0.0.1:8000/chat/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ question: input })
+        });
+
+        const data = await response.json();
+        if (data.answer) {
+          chatBox.innerHTML += `<p><strong>Bot:</strong> ${data.answer}</p>`;
+        } else {
+          chatBox.innerHTML += `<p><strong>Error:</strong> ${data.error || "No response"}</p>`;
+        }
+      } catch (error) {
+        chatBox.innerHTML += `<p><strong>Error:</strong> ${error.message}</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
