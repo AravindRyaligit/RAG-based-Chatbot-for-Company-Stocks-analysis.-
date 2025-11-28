@@ -18,12 +18,6 @@ A powerful RAG (Retrieval-Augmented Generation) chatbot designed to answer quest
 -   **Embeddings**: HuggingFace Transformers (`sentence-transformers`)
 -   **Frontend**: HTML/JS (Simple Interface)
 
-## 📋 Prerequisites
-
--   Python 3.8+
--   A [Google Gemini API Key](https://aistudio.google.com/)
--   A [Pinecone API Key](https://www.pinecone.io/)
-
 ## ⚙️ Installation
 
 1.  **Clone the repository**
